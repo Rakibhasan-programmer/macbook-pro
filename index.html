@@ -39,14 +39,14 @@
                     </div>
                     <div class="mt-5">
                         <h6>Storage</h6>
-                        <button type="button" class="btn btn-primary">256GB SSD storage</button>
-                        <button type="button" class="btn btn-primary">512GB SSD storage</button>
-                        <button type="button" class="btn btn-primary">1TB SSD storage</button>
+                        <button id="storage-btn-256gb" type="button" class="btn btn-primary">256GB SSD storage</button>
+                        <button id="storage-btn-512gb" type="button" class="btn btn-primary">512GB SSD storage</button>
+                        <button id="storage-btn-1tb" type="button" class="btn btn-primary">1TB SSD storage</button>
                     </div>
                     <div class="mt-5">
                         <h6>Choose your delivery option</h6>
-                        <button type="button" class="btn btn-primary">Friday, Aug 5 FREE Prime Delivery</button>
-                        <button type="button" class="btn btn-primary">Friday, Aug 21 Delivery charge $20</button>
+                        <button id="delivery-cost-free" type="button" class="btn btn-primary">Friday, Aug 25 FREE Prime Delivery</button>
+                        <button id="delivery-cost-included" type="button" class="btn btn-primary">Friday, Aug 21 Delivery charge $20</button>
                     </div>
                     <div class="mt-5">
                         <table class="table">
@@ -61,23 +61,23 @@
                               </tr>
                               <tr>
                                 <td>Extra storage cost</td>
-                                <td>$<span>0</span></td>
+                                <td>$<span id="extra-storage-cost">0</span></td>
                               </tr>
                               <tr>
                                 <td>Delivery charge</td>
-                                <td>$<span>0</span></td>
+                                <td>$<span id="delivery-cost">0</span></td>
                               </tr>
                               <tr>
                                 <td>Total price</td>
-                                <td>$<span>0</span></td>
+                                <td>$<span id="total-cost">1299</span></td>
                               </tr>
                             </tbody>
                           </table>
                     </div>
                     <div>
                         <h6>Add Promo Code</h6>
-                        <input class="py-1" type="text">
-                        <button type="submit" class="btn btn-danger">Apply</button>
+                        <input id="promoCode-input" class="py-1" type="text">
+                        <button id="promo-code-btn" type="submit" class="btn btn-danger">Apply</button>
                     </div>
                 </div>
             </div>
