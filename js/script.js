@@ -1,56 +1,76 @@
-// extra memory cost section
-function updateMemoryCost(memoryCost){
-    document.getElementById('extra-memory-cost').innerText = memoryCost;
+// cost calculation
+function costCalculation(id, price){
+    document.getElementById(id).innerText = price;
+    //function call
+    calculateTotalPrice();
 }
-// extra memory for 16gb eventlistener
+// calculate total
+function calculateTotalPrice(){
+    // best price
+    const bestPrice = document.getElementById('best-price');
+    const bestPriceAmount = parseInt(bestPrice.innerText);
+    // memory cost
+    const memoryCost = document.getElementById('extra-memory-cost');
+    const memoryCostAmount = parseInt(memoryCost.innerText);
+    // storage cost
+    const storageCost = document.getElementById('extra-storage-cost');
+    const storageCostAmount = parseInt(storageCost.innerText);
+    // deliver cost
+    const deliveryCost = document.getElementById('delivery-cost');
+    const deliveryCostAmount = parseInt(deliveryCost.innerText);
+    // total calculation
+    const totalPrice = bestPriceAmount+memoryCostAmount+storageCostAmount+deliveryCostAmount;
+    // displaying total price and total
+    document.getElementById('total-cost').innerText = totalPrice;
+    document.getElementById('grand-total').innerText = totalPrice;
+}
+
+// memory 16gb eventlistener
 document.getElementById('extra-memory-btn-16gb').addEventListener('click', function(){
-    updateMemoryCost(180);
+    costCalculation('extra-memory-cost', 180);
 });
-// extra memory for 8gb eventlistener
+// memory 8gb eventlistener
 document.getElementById('extra-memory-btn-8gb').addEventListener('click', function(){
-    updateMemoryCost(0);
+    costCalculation('extra-memory-cost', 0);
 });
 
-// extra storage Section
-function updateStorageCost(storageCost){
-    document.getElementById('extra-storage-cost').innerText = storageCost;
-}
+// storage 256 eventlistener
 document.getElementById('storage-btn-256gb').addEventListener('click', function(){
-    updateStorageCost(0);
+    costCalculation('extra-storage-cost', 0);
 });
+// storage 512 eventlistener
 document.getElementById('storage-btn-512gb').addEventListener('click', function(){
-    updateStorageCost(100);
+    costCalculation('extra-storage-cost', 100);
 });
+// storage 1Tb eventlistener
 document.getElementById('storage-btn-1tb').addEventListener('click', function(){
-    updateStorageCost(180);
+    costCalculation('extra-storage-cost', 180);
 });
 
 
-// delivery cost
-function updateDeliveryCost(deliveryCost){
-    document.getElementById('delivery-cost').innerText = deliveryCost;
-}
+// delivery cost free eventlistener
 document.getElementById('delivery-cost-free').addEventListener('click', function(){
-    updateDeliveryCost(0);
+    costCalculation('delivery-cost', 0);
 });
+// delivery cost included eventlistener
 document.getElementById('delivery-cost-included').addEventListener('click', function(){
-    updateDeliveryCost(20);
+    costCalculation('delivery-cost', 20);
 });
-
 
 //apply promocode
-/* document.getElementById('promo-code-btn').addEventListener('click', function(){
+document.getElementById('promo-code-btn').addEventListener('click', function(){
     const promoCode = 'stevekaku';
+    // taking input value
     const promoCodeInput = document.getElementById('promoCode-input');
     const promoCodeValue = promoCodeInput.value;
-
-    for(const promocode of promoCodeValue){
-        if(promocode.include(promoCode.toLowerCase())){
-            const totalCost = document.getElementById('total-cost');
-            const newTotalCost = parseFloat(totalCost.innerText)/20;
-            console.log(newTotalCost);
-            // totalCost.innerText = newTotalCost;
-        }
+    //taking total price
+    const totalPrice = document.getElementById('total-cost');
+    const newTotalCost = parseFloat(totalPrice.innerText);
+    // checking promocode
+    if(promoCodeValue.includes(promoCode)){  
+        //total calculation after applying promocode    
+        const total = (newTotalCost*80)/100;
+        document.getElementById('grand-total').innerText = total;
     }
     promoCodeInput.value = '';
-}); */
+});
